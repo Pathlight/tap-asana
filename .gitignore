@@ -141,7 +141,9 @@ tap_target_commands.sh
 tap_config.json
 target_config.json
 catalog*.json
+catalog.json*
 config*.json
+config.json* 
 state*.json
 */schemas/fixtures.json
 singer-check-tap-data
