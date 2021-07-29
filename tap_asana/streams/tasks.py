@@ -58,6 +58,7 @@ class Tasks(Stream):
         for task in self.call_api("tasks", project=project["gid"], opt_fields=opt_fields, modified_since=modified_since): 
           session_bookmark = self.get_updated_session_bookmark(session_bookmark, task[self.replication_key])
           if self.is_bookmark_old(task[self.replication_key]):
+            # cache new tasks (for a stories stream)
             tap_asana.cache.new_tasks.append(task.get('gid'))
             yield task
     self.update_bookmark(session_bookmark)
